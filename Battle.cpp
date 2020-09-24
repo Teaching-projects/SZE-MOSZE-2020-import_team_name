@@ -13,37 +13,37 @@ void Battle::StartFight(Warrior& warrior1, Warrior& warrior2) {
 	}
 }
 
-std::string Battle::GetAttackResult(Warrior& warriorA, Warrior& warriorB) {
+bool Battle::GetAttackResult(Warrior& warriorA, Warrior& warriorB) {
 	if (orderDefault) {
-		std::cout << warriorA.name << +": HP: " << warriorA.health << +", DMG: " << warriorA.dmg << std::endl;
-		std::cout << warriorB.name << +": HP: " << warriorB.health << +", DMG: " << warriorB.dmg << std::endl;
+		std::cout << warriorA.getName() << +": HP: " << warriorA.getHealth() << +", DMG: " << warriorA.getDmg() << std::endl;
+		std::cout << warriorB.getName() << +": HP: " << warriorB.getHealth() << +", DMG: " << warriorB.getDmg() << std::endl;
 		orderDefault = false;
 	}
 	else {
-		std::cout << warriorB.name << +": HP: " << warriorB.health << +", DMG: " << warriorB.dmg << std::endl;
-		std::cout << warriorA.name << +": HP: " << warriorA.health << +", DMG: " << warriorA.dmg << std::endl;
+		std::cout << warriorB.getName() << +": HP: " << warriorB.getHealth() << +", DMG: " << warriorB.getDmg() << std::endl;
+		std::cout << warriorA.getName() << +": HP: " << warriorA.getHealth() << +", DMG: " << warriorA.getDmg() << std::endl;
 		orderDefault = true;
 	}
-	std::cout << warriorA.name << " -> " << warriorB.name << std::endl;
+	std::cout << warriorA.getName() << " -> " << warriorB.getName() << std::endl;
 
 	int warriorAAttkAmt = warriorA.Attack();
 	int damage2WarriorB = warriorAAttkAmt;
 	damage2WarriorB = (damage2WarriorB <= 0) ? 0 : damage2WarriorB;
 
-	warriorB.health = ((warriorB.health - damage2WarriorB) <= 0) ? 0 : (warriorB.health - damage2WarriorB);
+	warriorB.setHealth(((warriorB.getHealth() - damage2WarriorB) <= 0) ? 0 : (warriorB.getHealth() - damage2WarriorB));
 
 
 
-	if (warriorB.health <= 0) {
+	if (warriorB.getHealth() <= 0) { //if any of the Warrior dies then print out at the end...
 		if (orderDefault) {
-			std::cout << warriorB.name << +": HP: " << warriorB.health << +", DMG: " << warriorB.dmg << std::endl;
-			std::cout << warriorA.name << +": HP: " << warriorA.health << +", DMG: " << warriorA.dmg << std::endl;
+			std::cout << warriorB.getName() << +": HP: " << warriorB.getHealth() << +", DMG: " << warriorB.getDmg() << std::endl;
+			std::cout << warriorA.getName() << +": HP: " << warriorA.getHealth() << +", DMG: " << warriorA.getDmg() << std::endl;
 		}
 		else {
-			std::cout << warriorA.name << +": HP: " << warriorA.health << +", DMG: " << warriorA.dmg << std::endl;
-			std::cout << warriorB.name << +": HP: " << warriorB.health << +", DMG: " << warriorB.dmg << std::endl;
+			std::cout << warriorA.getName() << +": HP: " << warriorA.getHealth() << +", DMG: " << warriorA.getDmg() << std::endl;
+			std::cout << warriorB.getName() << +": HP: " << warriorB.getHealth() << +", DMG: " << warriorB.getDmg() << std::endl;
 		}
-		std::cout << warriorB.name << " died. " << warriorA.name << " wins." << std::endl;
+		std::cout << warriorB.getName() << " died. " << warriorA.getName() << " wins." << std::endl;
 		return true;
 	}
 	else {
