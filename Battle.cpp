@@ -1,13 +1,12 @@
 #include "Battle.h"
-
 int orderDefault = true;
 
 void Battle::StartFight(Warrior& warrior1, Warrior& warrior2) {
 	while (true) {
-		if (Battle::GetAttackResult(warrior1, warrior2).compare("Game Over") == 0) {
-			break; //kill the entire end loop and end the program
+		if (Battle::GetAttackResult(warrior1, warrior2)) {
+			break; //kill the entire loop and end the program
 		}
-		if (Battle::GetAttackResult(warrior2, warrior1).compare("Game Over") == 0) { //warrior1 is gonna get the chance to attack warrior2
+		if (Battle::GetAttackResult(warrior2, warrior1)) { //warrior1 is gonna get the chance to attack warrior2
 			break;
 		}
 	}
@@ -44,9 +43,9 @@ std::string Battle::GetAttackResult(Warrior& warriorA, Warrior& warriorB) {
 			std::cout << warriorB.name << +": HP: " << warriorB.health << +", DMG: " << warriorB.dmg << std::endl;
 		}
 		std::cout << warriorB.name << " died. " << warriorA.name << " wins." << std::endl;
-		return "Game Over";
+		return true;
 	}
 	else {
-		return "Fight Again";
+		return false;
 	}
 }
