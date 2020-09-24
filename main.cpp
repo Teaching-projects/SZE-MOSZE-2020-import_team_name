@@ -3,11 +3,25 @@
 #include "Battle.h"
 #include "Warrior.h"
 
-int main() {
-	Warrior warriorA("Maple", 150, 10); //name, health, damage...
-	Warrior warriorB("Sally", 45, 30);
+int main(const int argc, const char** argv) {
 
-	Battle::StartFight(warriorA, warriorB);
+
+	if (argc == 7)
+	{
+
+		Warrior warriorA(argv[1], std::stoul(argv[2]), std::stoul(argv[3]));
+		Warrior warriorB(argv[4], std::stoul(argv[5]), std::stoul(argv[6]));
+
+		Battle::StartFight(warriorA, warriorB);
+
+	}
+	else
+	{
+		std::cout << "Wrong argument parameters. Please try again. " << std::endl;
+	}
+
+
+
 
 	std::cin.get();
 	return 0;
