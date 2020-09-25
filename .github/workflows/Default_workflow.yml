@@ -12,7 +12,7 @@ jobs:
     - name: setup python
     - uses: actions/setup-python@v2
     with:
-        python-version: 2.7
+        python-version: 3.6
     - name: generating result
       run: |
           python run_test.py main results.txt
