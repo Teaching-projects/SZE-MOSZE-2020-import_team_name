@@ -1,4 +1,4 @@
-name: test
+name: Default_workflow
 
 on:
   push
@@ -9,4 +9,3 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: g++ -std=c++17 *.cpp
-    - run: ./run-test.sh
