@@ -18,4 +18,4 @@ jobs:
       run: |
           python run_test.py main results.txt
     - name: check output
-        run: diff results.txt desire_output.txt
+      run: diff results.txt desire_output.txt
