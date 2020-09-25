@@ -17,5 +17,5 @@ jobs:
     - name: generating result
       run: |
           python run_test.py main results.txt
-      - name: check output
+    - name: check output
         run: diff results.txt desire_output.txt
