@@ -1,12 +1,26 @@
 # SZE-MOSZE-2020-import_team_name
 
-## Program structure
-In the project main file 2 object Warrior has been created which take three parameters name, health, damage.
-The StartFight function is called inside the Battle class so we can add the objects created before.
+## What does the code do?
+The characters take turns attacking each other. The damage value of the attacking character is subtracted from the defensive character's health.
+This continues in this way alternately until one of them loses. At the end the winner and its remaining health is listed.
+
+Format example:
+{
+  "name" : "ExampleName",
+  "hp" : 100,
+  "dmg" : 5
+}
 
 ## How to run the code
+
+First compile it with the following command g++ -std=c++17 *.cpp
+
 *Example:*
 
-***./a.out Maple 150 10 Sally 45 30***
+***./a.out gates.json page.json***
 
-If the input is not correct then it will results an error message. Otherwise the warriors attack each other back and forth until one of them dies.
+If the input is not correct then it will throw an exception. 
+Otherwise the warriors attack each other back and forth until one of them dies.
+
+
+@ :+1: It's ready to merge! :shipit:
