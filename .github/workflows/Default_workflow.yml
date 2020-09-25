@@ -9,3 +9,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: g++ -std=c++17 *.cpp
+    - name: setup python
+    - uses: actions/setup-python@v2
+    with:
+        python-version: 2.7
+    - name: generating result
+      run: |
+          python run_test.py main results.txt
+      - name: check output
+        run: diff results.txt desire_output.txt
