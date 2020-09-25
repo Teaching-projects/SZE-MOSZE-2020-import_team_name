@@ -1,21 +1,16 @@
 #include "Warrior.h"
 
-Warrior::Warrior(std::string name, int health, int dmg) {
-	this->name = name;
-	this->health = health;
-	this->dmg = dmg;
-}
 int Warrior::Attack() {
-	return this->dmg;
+	return dmg;
 }
-std::string Warrior::getName() {
+std::string Warrior::getName() const {
 	return name;
 }
 
-int Warrior::getHealth() {
+int Warrior::getHealth() const {
 	return health;
 }
 
-int Warrior::getDmg() {
+int Warrior::getDmg() const {
 	return dmg;
 }

@@ -3,16 +3,20 @@
 
 class Warrior {
 private:
-	std::string name;
-	int dmg;
+	const std::string name;
+	const int dmg;
 	int health;
 public:
-	std::string getName();
-	int getHealth();
-	int getDmg();
+	Warrior(std::string _name, int _health, int _dmg) :name(_name), health(_health), dmg(_dmg) {}
+	~Warrior() {};
+
+	std::string getName() const;
+	int getHealth() const;
+	int getDmg() const;
+
 	void setHealth(int _health) {
 		health = _health;
 	}
-	Warrior(std::string name, int health, int dmg);
+
 	int Attack();
 };
