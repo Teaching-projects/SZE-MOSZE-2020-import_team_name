@@ -17,6 +17,6 @@ public:
 	void setHealth(int _health) {
 		health = _health;
 	}
-
 	int Attack();
+	static Warrior parseUnit(std::string fName);
 };

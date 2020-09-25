@@ -3,22 +3,12 @@
 #include "Battle.h"
 #include "Warrior.h"
 
+
 int main(const int argc, const char** argv) {
-	if (argc == 7)
-	{
-		Warrior warriorA(argv[1], std::stoul(argv[2]), std::stoul(argv[3]));
-		Warrior warriorB(argv[4], std::stoul(argv[5]), std::stoul(argv[6]));
-
-		//Warrior warriorA= Warrior::parseUnit((argv[1], std::stoul(argv[2]), std::stoul(argv[3])));
-		//Warrior warriorB = Warrior::parseUnit((argv[4], std::stoul(argv[5]), std::stoul(argv[6])));
-
+		Warrior warriorA = Warrior::parseUnit(argv[1]);
+		Warrior warriorB = Warrior::parseUnit(argv[2]);
 
 		Battle::StartFight(warriorA, warriorB);
-	}
-	else
-	{
-		std::cout << "Wrong argument parameters. Please try again. " << std::endl;
-	}
 
 	return 0;
 }
