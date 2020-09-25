@@ -32,7 +32,7 @@ bool Battle::GetAttackResult(Warrior& warriorA, Warrior& warriorB) {
 	warriorB.setHealth(((warriorB.getHealth() - damage2WarriorB) <= 0) ? 0 : (warriorB.getHealth() - damage2WarriorB));
 
 	if (warriorB.getHealth() <= 0) { //if any of the Warrior dies then print out at the end...
-		std::cout << warriorA.getName() << " wins. Remaining HP:" << warriorA.getHealth() <<std::endl;
+		std::cout << warriorA.getName() << " wins. Remaining HP: " << warriorA.getHealth() <<std::endl;
 		return true;
 	}
 	else {
