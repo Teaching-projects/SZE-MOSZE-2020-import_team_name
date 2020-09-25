@@ -9,7 +9,7 @@ jobs:
     steps:
     - name: data checking
       uses: actions/checkout@v2
-    - run: g++ -std=c++17 *.cpp
+    - run: g++ -std=c++17 *.cpp -o main
     - name: setup python
       uses: actions/setup-python@v2
       with:
